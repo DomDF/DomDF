@@ -12,6 +12,8 @@
 #' 
 Metropolis_traceplot <- function(Metropolis_RW_dataframe, include_burn_in = FALSE, alpha = 0.4){
   
+  require(tidyverse)
+  
   if (include_burn_in == FALSE) {
     
     ggplot(data = Metropolis_RW_dataframe %>% 
