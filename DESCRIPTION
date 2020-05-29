@@ -1,0 +1,16 @@
+Package: DomDF
+Title: Functions for personal use
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Domenic",
+           family = "Di Francesco",
+           role = c("aut", "cre"),
+           email = "domenicdifrancesco@gmail.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Basic functions broadly based around Bayesian data analysis, with engineering application.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to
+    pick a license
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
