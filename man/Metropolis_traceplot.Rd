@@ -13,7 +13,7 @@ Metropolis_traceplot(
 \arguments{
 \item{Metropolis_RW_dataframe}{A dataframe produced by DomDF::Metroplois_RW() - REQUIRED.}
 
-\item{include_burn_in}{Whether burn-in samples should be included in the plot - Defaults to FALSE.}
+\item{include_burn_in}{Whether burn-in samples should be included in the plot. A vertical line is added to show this division when set to TRUE. - Defaults to FALSE.}
 
 \item{alpha}{Transparancy of each chain in the plot - Defaults to 0.4.}
 }

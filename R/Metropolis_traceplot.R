@@ -2,7 +2,7 @@
 #'
 #' A traceplot of samples from a Metroplis random walk Markov Chain Monte Carlo sampler (see DomDF::Metropolis_RW())
 #' @param Metropolis_RW_dataframe A dataframe produced by DomDF::Metroplois_RW() - REQUIRED.
-#' @param include_burn_in Whether burn-in samples should be included in the plot - Defaults to FALSE.
+#' @param include_burn_in Whether burn-in samples should be included in the plot. A vertical line is added to show this division when set to TRUE. - Defaults to FALSE.
 #' @param alpha Transparancy of each chain in the plot - Defaults to 0.4. 
 #' @keywords 
 #' @export
