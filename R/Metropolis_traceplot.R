@@ -29,7 +29,8 @@ Metropolis_traceplot <- function(Metropolis_RW_dataframe, include_burn_in = FALS
            mapping = aes(x = iter, y = value))+
       geom_line(mapping = aes(col = as.factor(chain)), alpha = alpha)+
       geom_vline(xintercept = min((Metropolis_RW_dataframe %>% 
-                                     dplyr::filter(status == 'sample'))$iter))+
+                                     dplyr::filter(status == 'sample'))$iter), 
+                 linetype = 2)+
     facet_wrap(facets = ~ parameter, ncol = 1)+
       theme_ddf_light() + labs(col = 'Chain') + theme(legend.title = element_text())
     
