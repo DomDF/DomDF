@@ -5,9 +5,12 @@ Authors@R:
     person(given = "Domenic",
            family = "Di Francesco",
            role = c("aut", "cre"),
-           email = "domenicdifrancesco@gmail.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           email = "domenicdifrancesco@gmail.com")
 Description: Basic functions broadly based around Bayesian data analysis, with engineering application.
+Imports: 
+  extrafont, 
+  mvtnorm,
+  tidyverse
 License: `use_mit_license()`, `use_gpl3_license()` or friends to
     pick a license
 Encoding: UTF-8

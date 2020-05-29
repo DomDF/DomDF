@@ -18,5 +18,5 @@ theme_ddf_dark(
 A pleasing dark theme for ggplot graphics.
 }
 \examples{
-theme_ddf_dark()
+ggplot(data = txhousing, mapping = aes(x = date, y = median)) + geom_point(alpha = 0.1) + theme_ddf_dark()
 }

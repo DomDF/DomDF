@@ -7,8 +7,9 @@
 #' @keywords 
 #' @export
 #' @examples
-#' theme_ddf_light()
-
+#' Metropolis_traceplot(Metropolis_RW_dataframe = four_dim_mcmc_df)
+#' Metropolis_traceplot(Metropolis_RW_dataframe = one_dim_mcmc_df)
+#' 
 Metropolis_traceplot <- function(Metropolis_RW_dataframe, include_burn_in = FALSE, alpha = 0.4){
   
   if (include_burn_in == FALSE) {

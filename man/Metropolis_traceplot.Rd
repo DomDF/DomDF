@@ -21,5 +21,7 @@ Metropolis_traceplot(
 A traceplot of samples from a Metroplis random walk Markov Chain Monte Carlo sampler
 }
 \examples{
-theme_ddf_light()
+Metropolis_traceplot(Metropolis_RW_dataframe = four_dim_mcmc_df)
+Metropolis_traceplot(Metropolis_RW_dataframe = one_dim_mcmc_df)
+
 }

@@ -6,10 +6,12 @@
 #' @keywords 
 #' @export
 #' @examples
-#' theme_ddf_dark()
+#' ggplot(data = txhousing, mapping = aes(x = date, y = median)) + geom_point(alpha = 0.1) + theme_ddf_dark()
 
 theme_ddf_dark <- function (base_size = 12, base_family = extrafont::choose_font(fonts = 'Bahnschrift')) 
 {
+  
+  require(ggplot2); require(extrafont)
   
   half_line <- base_size
   
