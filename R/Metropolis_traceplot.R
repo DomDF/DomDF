@@ -28,7 +28,7 @@ Metropolis_traceplot <- function(Metropolis_RW_dataframe, include_burn_in = FALS
     ggplot(data = Metropolis_RW_dataframe,
            mapping = aes(x = iter, y = value))+
       geom_line(mapping = aes(col = as.factor(chain)), alpha = alpha)+
-      geom_vline(xintercept = max((Metropolis_RW_2d_dataframe %>% 
+      geom_vline(xintercept = max((Metropolis_RW_dataframe %>% 
                                      dplyr::filter(status == 'burn-in'))$iter))
     facet_wrap(facets = ~ parameter, ncol = 1)+
       theme_ddf_light() + labs(col = 'Chain') + theme(legend.title = element_text())
