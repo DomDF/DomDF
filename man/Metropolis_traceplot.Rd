@@ -18,7 +18,7 @@ Metropolis_traceplot(
 \item{alpha}{Transparancy of each chain in the plot - Defaults to 0.4.}
 }
 \description{
-A traceplot of samples from a Metroplis random walk Markov Chain Monte Carlo sampler
+A traceplot of samples from a Metroplis random walk Markov Chain Monte Carlo sampler (see DomDF::Metropolis_RW())
 }
 \examples{
 Metropolis_traceplot(Metropolis_RW_dataframe = four_dim_mcmc_df)
