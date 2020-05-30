@@ -2,5 +2,6 @@
 
 export(Metropolis_RW)
 export(Metropolis_traceplot)
+export(VoPI)
 export(theme_ddf_dark)
 export(theme_ddf_light)
