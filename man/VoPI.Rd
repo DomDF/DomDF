@@ -4,7 +4,16 @@
 \alias{VoPI}
 \title{VoPI}
 \usage{
-VoPI(prior_dist, prior_args, lim_dist, lim_args, EC_lim_ex, n_samples = 10000)
+VoPI(
+  prior_dist,
+  prior_args,
+  lim_dist,
+  lim_args,
+  ExpCost_lim_ex,
+  n_samples = 10000,
+  method = "lhs",
+  VoPI_seed = 1008
+)
 }
 \arguments{
 \item{prior_dist}{A string representing the prior distribution function, for example 'norm', or 'exp' - REQUIRED.}
@@ -15,12 +24,16 @@ VoPI(prior_dist, prior_args, lim_dist, lim_args, EC_lim_ex, n_samples = 10000)
 
 \item{lim_args}{A list containing the parameter values of the limit distribution function (that which has an associated cost if exceeded), for example list(mean = 1, sd = 1), or list(rate = 1) - REQUIRED.}
 
-\item{EC_lim_ex}{A numeric cost associated with exceeding the limit distribution - REQUIRED.}
-
 \item{n_samples}{The total number of samples from which an expected value of perfect information will be estimated - Defaults to 10^4.}
+
+\item{method}{The sampling method used in the calculation. 'lhs' is Latin Hypercube sampling and 'mc' is Monte Carlo sampling - Defaults to 'lhs'.}
+
+\item{VoPI_seed}{A random seed for reproduceable sampling. Enter NULL if this is not required. - Defaults to 1008.}
+
+\item{EC_lim_ex}{A numeric cost associated with exceeding the limit distribution - REQUIRED.}
 }
 \description{
-A Crude Monte Carlo Estimation of the Value of Perfect Information for a One-Dimensional Decision Analysis Under Uncertainty Problem
+A Latin Hypercube (or Crude Monte Carlo) Estimation of the Value of Perfect Information for a One-Dimensional Decision Analysis Under Uncertainty Problem
 }
 \examples{
 estimated_VoPI <- VoPI(prior_dist = 'exp', prior_args = list(rate = 3), lim_dist = 'norm', lim_args = list(mean = 3, sd = 1), EC_lim_ex = 1e5)
