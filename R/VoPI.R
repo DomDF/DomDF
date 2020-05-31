@@ -84,7 +84,7 @@ VoPI <- function(prior_dist, prior_args, lim_dist, lim_args, ExpCost_lim_ex, n_s
   
   Exp_VoPI <- max(0, (ExpCost_prior - ExpCost_prepost))
   
-  VoPI_df <- data.frame(ExpCost_prior, ExpCost_prepost, Exp_VoPI, sampling_method = method)
+  VoPI_df <- data.frame(ExpCost_prior, ExpCost_prepost, Exp_VoPI, sampling_method = method, n_samples = n_samples)
   
   return(VoPI_df)
 
