@@ -3,6 +3,8 @@
 #' An Estimation of the Value of Perfect Information for a One-Dimensional Decision Analysis Under Uncertainty Problem.
 #' This function uses a combination of importance sampling and latin hypercube sampling by default, but other algorithms are available (see the 'method' parameter).
 #' 
+#' A dataframe of prior and preposterior decision analysis results is returned.
+#' 
 #' @param prior_dist A string representing the prior distribution function, for example 'norm', or 'exp' - REQUIRED.
 #' @param prior_args A list containing the parameter values of the prior distribution, for example list(mean = 1, sd = 1), or list(rate = 1) - REQUIRED.
 #' @param lim_dist A string representing the limit distribution function (that which has an associated cost if exceeded), for example 'norm', or 'exp' - REQUIRED.
@@ -10,18 +12,20 @@
 #' @param ExpCost_lim_ex A numeric cost associated with exceeding the limit distribution - REQUIRED.
 #' @param ExpCost_rm A numeric cost associated with performing the risk mitigation option being evaluated - REQUIRED.
 #' @param rm_lim_ex The probability of exceeding the limit function following completion of the risk mitigation option being evaluated - Defaults to 0.
-#' @param n_samples The total number of samples from which an expected value of perfect information will be estimated - Defaults to 10^4.
+#' @param n_samples The total number of samples from which an expected value of perfect information will be estimated - Defaults to 10^3.
 #' @param method The sampling method used in the calculation. 'is' is Importance Sampling, 'lhs' is Latin Hypercube sampling and 'mc' is Monte Carlo sampling - Defaults to 'is'.
 #' @param VoPI_seed A random seed for reproduceable sampling. Enter NULL if this is not required. - Defaults to 1008.
 #' 
 #' @keywords
 #' @export
 #' @examples
-#' estimated_VoPI <- VoPI(prior_dist = 'exp', prior_args = list(rate = 3), lim_dist = 'norm', lim_args = list(mean = 3, sd = 1), EC_lim_ex = 1e5)
+#' estimated_VoPI <- VoPI(prior_dist = 'exp', prior_args = list(rate = 1), 
+#'                        lim_dist = 'norm', lim_args = list(mean = 3, sd = 1), 
+#'                        ExpCost_lim_ex = 1e5, ExpCost_rm = 10^4)
 
 VoPI <- function(prior_dist, prior_args, lim_dist, lim_args, ExpCost_lim_ex,
                  ExpCost_rm, rm_lim_ex = 0,
-                 n_samples = 1e4, method = 'is+lhs', VoPI_seed = 1008){
+                 n_samples = 1e3, method = 'is+lhs', VoPI_seed = 1008){
 
   require(tidyverse); require(lhs)
   

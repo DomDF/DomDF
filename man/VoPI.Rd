@@ -12,7 +12,7 @@ VoPI(
   ExpCost_lim_ex,
   ExpCost_rm,
   rm_lim_ex = 0,
-  n_samples = 10000,
+  n_samples = 1000,
   method = "is+lhs",
   VoPI_seed = 1008
 )
@@ -32,7 +32,7 @@ VoPI(
 
 \item{rm_lim_ex}{The probability of exceeding the limit function following completion of the risk mitigation option being evaluated - Defaults to 0.}
 
-\item{n_samples}{The total number of samples from which an expected value of perfect information will be estimated - Defaults to 10^4.}
+\item{n_samples}{The total number of samples from which an expected value of perfect information will be estimated - Defaults to 10^3.}
 
 \item{method}{The sampling method used in the calculation. 'is' is Importance Sampling, 'lhs' is Latin Hypercube sampling and 'mc' is Monte Carlo sampling - Defaults to 'is'.}
 
@@ -42,6 +42,11 @@ VoPI(
 An Estimation of the Value of Perfect Information for a One-Dimensional Decision Analysis Under Uncertainty Problem.
 This function uses a combination of importance sampling and latin hypercube sampling by default, but other algorithms are available (see the 'method' parameter).
 }
+\details{
+A dataframe of prior and preposterior decision analysis results is returned.
+}
 \examples{
-estimated_VoPI <- VoPI(prior_dist = 'exp', prior_args = list(rate = 3), lim_dist = 'norm', lim_args = list(mean = 3, sd = 1), EC_lim_ex = 1e5)
+estimated_VoPI <- VoPI(prior_dist = 'exp', prior_args = list(rate = 1), 
+                       lim_dist = 'norm', lim_args = list(mean = 3, sd = 1), 
+                       ExpCost_lim_ex = 1e5, ExpCost_rm = 10^4)
 }
