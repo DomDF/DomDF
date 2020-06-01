@@ -4,24 +4,20 @@
 \alias{Metropolis_traceplot}
 \title{Metropolis_traceplot}
 \usage{
-Metropolis_traceplot(
-  Metropolis_RW_dataframe,
-  include_burn_in = FALSE,
-  alpha = 0.4
-)
+Metropolis_traceplot(mcmc_data, include_burn_in = FALSE, alpha = 0.4)
 }
 \arguments{
-\item{Metropolis_RW_dataframe}{A dataframe produced by DomDF::Metroplois_RW() - REQUIRED.}
+\item{mcmc_data}{Data of the form produced by DomDF::Metroplois_RW() - REQUIRED.}
 
 \item{include_burn_in}{Whether burn-in samples should be included in the plot. A vertical line is added to show this division when set to TRUE. - Defaults to FALSE.}
 
 \item{alpha}{Transparancy of each chain in the plot - Defaults to 0.4.}
 }
 \description{
-A traceplot of samples from a Metroplis random walk Markov Chain Monte Carlo sampler (see DomDF::Metropolis_RW())
+Returns a ggplot object of a traceplot of samples from a Metroplis random walk Markov Chain Monte Carlo sampler (see DomDF::Metropolis_RW())
 }
 \examples{
-Metropolis_traceplot(Metropolis_RW_dataframe = four_dim_mcmc_df)
-Metropolis_traceplot(Metropolis_RW_dataframe = one_dim_mcmc_df)
+Metropolis_traceplot(mcmc_data = four_dim_mcmc_samples)
+Metropolis_traceplot(mcmc_data = one_dim_mcmc_samples)
 
 }

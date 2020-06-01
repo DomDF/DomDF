@@ -1,6 +1,9 @@
 #' Metropolis_RW
 #'
-#' A Metroplis random walk Markov Chain Monte Carlo sampler to draw from an n-dimensional posterior distribution defined with Gaussian priors and likelihoods
+#' A Metroplis random walk Markov Chain Monte Carlo sampler to draw from an n-dimensional posterior distribution defined with Gaussian priors and likelihoods.
+#' Returns a tibble (tidy, long format) with details of each iteration, for each parameter, for each chain.
+#' 
+#' 
 #' @param n_dims The number of dimensions of the distributions considered - REQUIRED.
 #' @param iterations The total number of samples, including burn-in, to draw from each chain - REQUIRED.
 #' @param mu_prior An n-dimesional vector of mean values for the prior model - REQUIRED.
@@ -17,8 +20,8 @@
 #' @keywords
 #' @export
 #' @examples
-#' four_dim_mcmc_df <- Metropolis_RW(n_dims = 2, iterations = 1e3, mu_prior = c(0, 0), var_prior = diag(2), mu_lik = c(3, 3), var_lik = diag(2))
-#' one_dim_mcmc_df <- Metropolis_RW(n_dims = 1, iterations = 1e3, mu_prior = 0, var_prior = 10, mu_lik = 3, var_lik = 1)
+#' one_dim_mcmc_samples <- Metropolis_RW(n_dims = 1, iterations = 1e3, mu_prior = 0, var_prior = 10, mu_lik = 3, var_lik = 1)
+#' two_dim_mcmc_samples <- Metropolis_RW(n_dims = 2, iterations = 1e3, mu_prior = c(0, 0), var_prior = diag(2), mu_lik = c(3, 3), var_lik = diag(2))
 
 Metropolis_RW <- function(n_dims, iterations, mu_prior, var_prior, mu_lik, var_lik,
                           n_chains = 4, n_burn_in = iterations/2, x_initials,

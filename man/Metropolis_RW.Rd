@@ -48,9 +48,10 @@ Metropolis_RW(
 \item{thinning}{A parameter determining how many successive iterations should be disregarding to mitigate excessive auto-correlation - defaults to 1}
 }
 \description{
-A Metroplis random walk Markov Chain Monte Carlo sampler to draw from an n-dimensional posterior distribution defined with Gaussian priors and likelihoods
+A Metroplis random walk Markov Chain Monte Carlo sampler to draw from an n-dimensional posterior distribution defined with Gaussian priors and likelihoods.
+Returns a tibble (tidy, long format) with details of each iteration, for each parameter, for each chain.
 }
 \examples{
-four_dim_mcmc_df <- Metropolis_RW(n_dims = 2, iterations = 1e3, mu_prior = c(0, 0), var_prior = diag(2), mu_lik = c(3, 3), var_lik = diag(2))
-one_dim_mcmc_df <- Metropolis_RW(n_dims = 1, iterations = 1e3, mu_prior = 0, var_prior = 10, mu_lik = 3, var_lik = 1)
+one_dim_mcmc_samples <- Metropolis_RW(n_dims = 1, iterations = 1e3, mu_prior = 0, var_prior = 10, mu_lik = 3, var_lik = 1)
+two_dim_mcmc_samples <- Metropolis_RW(n_dims = 2, iterations = 1e3, mu_prior = c(0, 0), var_prior = diag(2), mu_lik = c(3, 3), var_lik = diag(2))
 }
