@@ -1,2 +1,2 @@
 # DomDF
-A personal package containing functions for Bayesian data analysis and plotting.
+A personal R package containing functions for Bayesian data analysis and plotting.
