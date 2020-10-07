@@ -1,6 +1,7 @@
 # DomDF
 
 A personal R package containing functions for Bayesian data analysis and plotting.
+
 This can be downloaded using the following code:
 
 ```
