@@ -35,7 +35,7 @@ Metropolis_RW <- function(n_dims, iterations, mu_prior, var_prior, mu_lik, var_l
 
     x_initials <- seq(from = -n_dims, to = n_dims, length.out = n_dims * n_chains)
 
-  } else (x_initials <- x_initials)
+  } else {x_initials <- x_initials}
 
   set.seed(seed = MCMC_seed)
 
