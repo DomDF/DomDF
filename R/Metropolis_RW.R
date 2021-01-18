@@ -31,7 +31,7 @@ Metropolis_RW <- function(n_dims, iterations, mu_prior, var_prior, mu_lik, var_l
 
   n_dims <- as.integer(n_dims); if(n_dims < 1) stop('Please provide a positive integer number of dimensions: n_dim')
 
-  if(x_intials == 'default') {
+  if(x_initials == 'default') {
 
     x_initials <- seq(from = -n_dims, to = n_dims, length.out = n_dims * n_chains)
 
