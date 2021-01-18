@@ -2,8 +2,8 @@
 #'
 #' A Metroplis random walk Markov Chain Monte Carlo sampler to draw from an n-dimensional posterior distribution defined with Gaussian priors and likelihoods.
 #' Returns a tibble (tidy, long format) with details of each iteration, for each parameter, for each chain.
-#' 
-#' 
+#'
+#'
 #' @param n_dims The number of dimensions of the distributions considered - REQUIRED.
 #' @param iterations The total number of samples, including burn-in, to draw from each chain - REQUIRED.
 #' @param mu_prior An n-dimesional vector of mean values for the prior model - REQUIRED.
@@ -24,13 +24,18 @@
 #' two_dim_mcmc_samples <- Metropolis_RW(n_dims = 2, iterations = 1e3, mu_prior = c(0, 0), var_prior = diag(2), mu_lik = c(3, 3), var_lik = diag(2))
 
 Metropolis_RW <- function(n_dims, iterations, mu_prior, var_prior, mu_lik, var_lik,
-                          n_chains = 4, n_burn_in = iterations/2, x_initials,
+                          n_chains = 4, n_burn_in = iterations/2, x_initials = 'default',
                           prop_var = 1, annealing = 1, MCMC_seed = 1008, thinning = 1){
 
   require(mvtnorm); require(tidyverse)
-  
+
   n_dims <- as.integer(n_dims); if(n_dims < 1) stop('Please provide a positive integer number of dimensions: n_dim')
-  x_initials <- seq(from = -n_dims, to = n_dims, length.out = n_dims * n_chains)
+
+  if(x_intials == 'default') {
+
+    x_initials <- seq(from = -n_dims, to = n_dims, length.out = n_dims * n_chains)
+
+  } else (x_initials <- x_initials)
 
   set.seed(seed = MCMC_seed)
 
