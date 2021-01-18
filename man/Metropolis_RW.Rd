@@ -13,7 +13,7 @@ Metropolis_RW(
   var_lik,
   n_chains = 4,
   n_burn_in = iterations/2,
-  x_initials,
+  x_initials = "default",
   prop_var = 1,
   annealing = 1,
   MCMC_seed = 1008,
