@@ -13,9 +13,9 @@ get_TM_squad(url, raw = FALSE)
 }
 \description{
 A webscraping function for the website 'https://www.transfermarkt.com/'.
-Returns a preprocessed tibble of any squad
+Returns a preprocessed tibble of any squad.
 }
 \examples{
-Juventus squad <- get_TM_squad(url <-  https://www.transfermarkt.co.uk/juventus-fc/kader/verein/506/saison_id/2020/plus/1)
-Blackburn_Rovers_squad <- get_TM_squad(url <- 'https://www.transfermarkt.co.uk/blackburn-rovers/kader/verein/164/saison_id/2020/plus/1')
+Juventus squad <- get_TM_squad(url =  'https://www.transfermarkt.co.uk/juventus-fc/kader/verein/506/saison_id/2020/plus/1')
+Blackburn_Rovers_squad <- get_TM_squad(url = 'https://www.transfermarkt.co.uk/blackburn-rovers/kader/verein/164/saison_id/2020/plus/1')
 }

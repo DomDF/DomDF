@@ -1,7 +1,7 @@
 #' get_TM_squad
 #'
 #' A webscraping function for the website 'https://www.transfermarkt.com/'.
-#' Returns a preprocessed tibble of any squad
+#' Returns a preprocessed tibble of any squad.
 #'
 #'
 #' @param url A valid ()detailed) transfermarkt url. Navigate to a club page, click on the 'detailed' tab, and then paste the url - REQUIRED.
@@ -9,8 +9,8 @@
 #' @keywords
 #' @export
 #' @examples
-#' Juventus squad <- get_TM_squad(url <-  https://www.transfermarkt.co.uk/juventus-fc/kader/verein/506/saison_id/2020/plus/1)
-#' Blackburn_Rovers_squad <- get_TM_squad(url <- 'https://www.transfermarkt.co.uk/blackburn-rovers/kader/verein/164/saison_id/2020/plus/1')
+#' Juventus squad <- get_TM_squad(url =  'https://www.transfermarkt.co.uk/juventus-fc/kader/verein/506/saison_id/2020/plus/1')
+#' Blackburn_Rovers_squad <- get_TM_squad(url = 'https://www.transfermarkt.co.uk/blackburn-rovers/kader/verein/164/saison_id/2020/plus/1')
 
 get_TM_squad <- function(url, raw = FALSE){
 
