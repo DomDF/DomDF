@@ -21,6 +21,8 @@ gen_exp_quad_cov <- function(n_dims, alpha_sq = 1, rho_sq = 3, sigma_sq = 1,
                              tidy = FALSE,
                              longer = FALSE) {
 
+  require(tidyverse)
+
   n_dims <- as.integer(n_dims); if(n_dims < 1) stop('Please provide a positive integer number of dimensions: n_dim')
   if(sigma_sq < 0) stop('Please provide a non-negtive variance: sigma_sq')
   if(rho_sq < 0) stop('Please provide a non-negtive length scale: rho_sq')

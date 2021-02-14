@@ -5,29 +5,34 @@
 #'
 #'
 #' @param url A valid ()detailed) transfermarkt url. Navigate to a club page, click on the 'detailed' tab, and then paste the url - REQUIRED.
+#' @param user_agent A character introducing yourself to the website - REQUIRED.
 #' @param raw  Logical: if TRUE, returns the unprocessed table. if FALSE, returns a processed tibble - defaults to FALSE
 #' @keywords
 #' @export
 #' @examples
-#' Juventus squad <- get_TM_squad(url =  'https://www.transfermarkt.co.uk/juventus-fc/kader/verein/506/saison_id/2020/plus/1')
-#' Blackburn_Rovers_squad <- get_TM_squad(url = 'https://www.transfermarkt.co.uk/blackburn-rovers/kader/verein/164/saison_id/2020/plus/1')
+#' Juventus squad <- get_TM_squad(url =  'https://www.transfermarkt.co.uk/juventus-fc/kader/verein/506/saison_id/2020/plus/1', user_agent = 'John Smith personal project')
+#' Blackburn_Rovers_squad <- get_TM_squad(url = 'https://www.transfermarkt.co.uk/blackburn-rovers/kader/verein/164/saison_id/2020/plus/1', user_agent = 'John Smith personal project')
 
-get_TM_squad <- function(url, raw = FALSE){
+get_TM_squad <- function(url, agent, raw = FALSE){
 
-  raw_squad <- url %>%
-    xml2::read_html() %>%
+  require(tidyverse); require(polite)
+
+  session <- polite::bow(url = url, user_agent = agent)
+
+  raw_squad <- session %>%
+    polite::scrape() %>%
     rvest::html_nodes('#yw1 > table') %>%
     rvest::html_table(fill = TRUE)
 
-  team_name <- url %>%
-    xml2::read_html() %>%
+  team_name <- session %>%
+    polite::scrape() %>%
     rvest::html_nodes('#verein_head > div > div.dataHeader.dataExtended > div.dataMain > div > div.dataName > h1') %>%
     rvest::html_text() %>%
     stringr::str_replace_all(pattern = '\n', replacement = '') %>%
     stringr::str_trim()
 
-  squad <- url %>%
-    xml2::read_html() %>%
+  squad <- session %>%
+    polite::scrape() %>%
     rvest::html_nodes('#yw1 > table') %>%
     rvest::html_table(fill = TRUE) %>%
     as.data.frame() %>%
