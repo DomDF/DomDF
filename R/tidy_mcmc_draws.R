@@ -30,8 +30,8 @@ tidy_mcmc_draws <- function(cmdstan_fit, params = 'all_params'){
 
   draws_array <- cmdstan_fit$draws(variables = vars)
 
-  hmc_datatable <- data.table(Parameter = rep(x = rep(x = vars[1:n_params], each = n_draws), times = n_chains),
-                              Chain = rep(x = 1:n_chains, each = n_params * n_draws),
+  hmc_datatable <- data.table(Parameter = rep(x = vars[1:n_params], each = n_draws * n_chains),
+                              Chain = rep(x = rep(x = 1:n_chains, each = n_draws), times = n_params),
                               Iteration = rep(1:n_draws, times = n_params * n_chains),
                               value = draws_array %>% as.vector())
 
