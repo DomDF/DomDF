@@ -21,3 +21,5 @@ Metropolis_traceplot(mcmc_data = four_dim_mcmc_samples)
 Metropolis_traceplot(mcmc_data = one_dim_mcmc_samples)
 
 }
+\keyword{MCMC,}
+\keyword{Traceplot}

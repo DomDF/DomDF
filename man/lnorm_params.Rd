@@ -19,3 +19,6 @@ Returns a list of 'meanlog' and 'sdlog' (equivalent to the arguments from the ln
 lognormal_parameters <- lnorm_params(norm_mean = 1, norm_sd = 1)
 lognormal_mean <- lognormal_parameters$meanlog
 }
+\keyword{Distribution}
+\keyword{Lognormal,}
+\keyword{Parameters}

@@ -55,3 +55,7 @@ Returns a tibble (tidy, long format) with details of each iteration, for each pa
 one_dim_mcmc_samples <- Metropolis_RW(n_dims = 1, iterations = 1e3, mu_prior = 0, var_prior = 10, mu_lik = 3, var_lik = 1)
 two_dim_mcmc_samples <- Metropolis_RW(n_dims = 2, iterations = 1e3, mu_prior = c(0, 0), var_prior = diag(2), mu_lik = c(3, 3), var_lik = diag(2))
 }
+\keyword{MCMC}
+\keyword{Metroplis}
+\keyword{Random}
+\keyword{Walk,}

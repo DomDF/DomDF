@@ -7,7 +7,7 @@
 #' @param url A valid ()detailed) transfermarkt url. Navigate to a club page, click on the 'detailed' tab, and then paste the url - REQUIRED.
 #' @param user_agent A character introducing yourself to the website - REQUIRED.
 #' @param raw  Logical: if TRUE, returns the unprocessed table. if FALSE, returns a processed tibble - defaults to FALSE
-#' @keywords
+#' @keywords Webscraping, Football, Soccer
 #' @export
 #' @examples
 #' Juventus squad <- get_TM_squad(url =  'https://www.transfermarkt.co.uk/juventus-fc/kader/verein/506/saison_id/2020/plus/1', user_agent = 'John Smith personal project')

@@ -34,3 +34,5 @@ Returns either a matrix (tidy = FALSE), a wide tibble (tidy = TRUE, longer = FAL
 ten_dim_cov_mat <- cov_mat <- gen_exp_quad_cov(n_dims = 10, tidy = FALSE)
 ten_dim_cov_tibble_long <- gen_exp_quad_cov(n_dims = 10, tidy = TRUE, longer = TRUE)
 }
+\keyword{Covariance}
+\keyword{Exponentiated-Quadratic,}

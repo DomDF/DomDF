@@ -6,7 +6,7 @@
 #'
 #' @param norm_mean The mean value of the associated normal distribution - REQUIRED.
 #' @param norm_sd  The standard deviation of the associated normal distribution - REQUIRED.
-#' @keywords
+#' @keywords Lognormal, Distribution Parameters
 #' @export
 #' @examples
 #' lognormal_parameters <- lnorm_params(norm_mean = 1, norm_sd = 1)

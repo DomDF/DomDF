@@ -46,7 +46,12 @@ This function uses a combination of importance sampling and latin hypercube samp
 A dataframe of prior and preposterior decision analysis results is returned.
 }
 \examples{
-estimated_VoPI <- VoPI(prior_dist = 'exp', prior_args = list(rate = 1), 
-                       lim_dist = 'norm', lim_args = list(mean = 3, sd = 1), 
+estimated_VoPI <- VoPI(prior_dist = 'exp', prior_args = list(rate = 1),
+                       lim_dist = 'norm', lim_args = list(mean = 3, sd = 1),
                        ExpCost_lim_ex = 1e5, ExpCost_rm = 10^4)
 }
+\keyword{Information}
+\keyword{Information,}
+\keyword{Perfect}
+\keyword{Value}
+\keyword{of}

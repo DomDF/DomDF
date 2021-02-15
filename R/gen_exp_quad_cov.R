@@ -11,7 +11,7 @@
 
 #' @param tidy Logical: If 'TRUE', returns a tibble, if 'FALSE'  returns a matrix - defaults to FALSE.
 #' @param longer Logical: If 'TRUE', returns a long-format tibble, if 'FALSE'  returns a wide-format tibble (requires tidy = TRUE) - defaults to FALSE.
-#' @keywords
+#' @keywords Exponentiated-Quadratic, Covariance
 #' @export
 #' @examples
 #' ten_dim_cov_mat <- cov_mat <- gen_exp_quad_cov(n_dims = 10, tidy = FALSE)

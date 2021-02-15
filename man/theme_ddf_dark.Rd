@@ -20,3 +20,5 @@ A pleasing dark theme for ggplot graphics.
 \examples{
 ggplot(data = txhousing, mapping = aes(x = date, y = median)) + geom_point(alpha = 0.1) + theme_ddf_dark()
 }
+\keyword{ggplot}
+\keyword{theme}

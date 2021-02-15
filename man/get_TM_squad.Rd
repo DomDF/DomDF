@@ -21,3 +21,6 @@ Returns a preprocessed tibble of any squad.
 Juventus squad <- get_TM_squad(url =  'https://www.transfermarkt.co.uk/juventus-fc/kader/verein/506/saison_id/2020/plus/1', user_agent = 'John Smith personal project')
 Blackburn_Rovers_squad <- get_TM_squad(url = 'https://www.transfermarkt.co.uk/blackburn-rovers/kader/verein/164/saison_id/2020/plus/1', user_agent = 'John Smith personal project')
 }
+\keyword{Football,}
+\keyword{Soccer}
+\keyword{Webscraping,}

@@ -17,7 +17,7 @@
 #' @param annealing A multiplicative simulated annealing parameter - defaults to 1 (equivalent of no annealing)
 #' @param MCMC_seed  A random seed value for reproducable analysis - defaults to 1008
 #' @param thinning  A parameter determining how many successive iterations should be disregarding to mitigate excessive auto-correlation - defaults to 1
-#' @keywords
+#' @keywords Metroplis Random Walk, MCMC
 #' @export
 #' @examples
 #' one_dim_mcmc_samples <- Metropolis_RW(n_dims = 1, iterations = 1e3, mu_prior = 0, var_prior = 10, mu_lik = 3, var_lik = 1)
@@ -43,12 +43,12 @@ Metropolis_RW <- function(n_dims, iterations, mu_prior, var_prior, mu_lik, var_l
 
     x <- data.frame(matrix(ncol = n_dims))
 
-    df_MetRW <- cbind(data.frame(chain = integer(length = 1), iter = integer(length = 1), t = double(length = 1),
+    df_MetRW <- cbind(data.frame(Chain = integer(length = 1), Iteration = integer(length = 1), t = double(length = 1),
                                  d_trial = double(length = 1), d_prop = double(length = 1)), x)
 
   } else {
 
-    df_MetRW <- data.frame(chain = integer(), iter = integer(), t = double(),
+    df_MetRW <- data.frame(Chain = integer(), Iteration = integer(), t = double(),
                            d_trial = double(), d_prop = double(), x = double())
 
   }
@@ -87,7 +87,7 @@ Metropolis_RW <- function(n_dims, iterations, mu_prior, var_prior, mu_lik, var_l
         }
 
         df_MetRW <- rbind(df_MetRW,
-                          cbind(data.frame(chain, iter, t, d_trial, d_prop),
+                          cbind(data.frame(Chain = chain, Iteration = iter, t, d_trial, d_prop),
                                 data.frame(matrix(data = x, ncol = n_dims))))
 
       }
@@ -119,7 +119,7 @@ Metropolis_RW <- function(n_dims, iterations, mu_prior, var_prior, mu_lik, var_l
           }
         }
 
-        df_MetRW <- rbind(df_MetRW, data.frame(chain, iter, x, t, d_trial, d_prop))
+        df_MetRW <- rbind(df_MetRW, data.frame(Chain = chain, Iteration = iter, x, t, d_trial, d_prop))
 
       }
 
@@ -138,7 +138,7 @@ Metropolis_RW <- function(n_dims, iterations, mu_prior, var_prior, mu_lik, var_l
       )) %>%
       tidyr::pivot_longer(cols = colnames(df_MetRW[,grepl(pattern = 'X|x',
                                                           x = colnames(df_MetRW))]),
-                          names_to = 'parameter')
+                          names_to = 'Parameter')
   } else{
 
     df_MetRW <- df_MetRW %>%
@@ -148,7 +148,7 @@ Metropolis_RW <- function(n_dims, iterations, mu_prior, var_prior, mu_lik, var_l
       )) %>%
       tidyr::pivot_longer(cols = colnames(df_MetRW %>%
                                             select(x)),
-                          names_to = 'parameter')
+                          names_to = 'Parameter')
 
   }
 
