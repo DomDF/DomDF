@@ -30,20 +30,10 @@ tidy_mcmc_draws <- function(cmdstan_fit, params = 'all_params'){
 
   draws_array <- cmdstan_fit$draws(variables = vars)
 
-  hmc_tibble <- tibble(Parameter = character(), Chain = integer(), Iteration = integer(), value = double())
-
-  for (chain in 1:n_chains){
-    for (var in 1:length(vars)){
-
-      int_tibble <- tibble(Parameter = as.factor(vars[var]),
-             Chain = as.factor(chain),
-             Iteration = as.integer(seq(from = 1, to = n_draws, by = thinning)),
-             value = draws_array[,chain, vars[var]] %>% as.vector())
-
-      hmc_tibble <- rbind(hmc_tibble, int_tibble)
-
-    }
-  }
+  hmc_tibble <- tibble(Parameter = rep(x = rep(x = vars[1:n_params], each = n_draws), times = n_chains),
+                       Chain = rep(x = 1:n_chains, each = n_params * n_draws),
+                       Iteration = rep(1:n_draws, times = n_params * n_chains),
+                       value = draws_array %>% as.vector())
 
   return(hmc_tibble)
 
