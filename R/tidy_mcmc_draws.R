@@ -14,7 +14,7 @@
 
 tidy_mcmc_draws <- function(cmdstan_fit, params = 'all_params'){
 
-  require(cmdstanr); require(tidyverse)
+  require(cmdstanr); require(data.table); require(tibble)
 
   if(cmdstan_fit$metadata()$method != 'sample') stop('Please provide a valid CmdStanMCMC Object')
 
@@ -30,10 +30,12 @@ tidy_mcmc_draws <- function(cmdstan_fit, params = 'all_params'){
 
   draws_array <- cmdstan_fit$draws(variables = vars)
 
-  hmc_tibble <- tibble(Parameter = rep(x = rep(x = vars[1:n_params], each = n_draws), times = n_chains),
-                       Chain = rep(x = 1:n_chains, each = n_params * n_draws),
-                       Iteration = rep(1:n_draws, times = n_params * n_chains),
-                       value = draws_array %>% as.vector())
+  hmc_datatable <- data.table(Parameter = rep(x = rep(x = vars[1:n_params], each = n_draws), times = n_chains),
+                              Chain = rep(x = 1:n_chains, each = n_params * n_draws),
+                              Iteration = rep(1:n_draws, times = n_params * n_chains),
+                              value = draws_array %>% as.vector())
+
+  hmc_tibble <- hmc_datatable %>% as_tibble()
 
   return(hmc_tibble)
 
