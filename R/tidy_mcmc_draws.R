@@ -14,7 +14,7 @@
 
 tidy_mcmc_draws <- function(cmdstan_fit, params = 'all_params'){
 
-  require(cmdstanr); require(data.table); require(tibble)
+  require(cmdstanr); require(data.table); require(tibble); require(dplyr)
 
   if(cmdstan_fit$metadata()$method != 'sample') stop('Please provide a valid CmdStanMCMC Object')
 
