@@ -10,7 +10,7 @@
 #' @export
 #' @examples
 #' gq_df <- tidy_mcmc_gq(cmdstan_gq = Bayesian_model_gq)
-#' reduced_mcmc_gq <- tidy_mcmc_gq(cmdstan_fit = Bayesian_model_gq, params = c('A', 'm')) # Where 'A' and 'm' are parameters in the Stan program.
+#' reduced_mcmc_gq <- tidy_mcmc_gq(cmdstan_gq = Bayesian_model_gq, params = c('A', 'm')) # Where 'A' and 'm' are parameters in the Stan program.
 
 tidy_mcmc_gq <- function(cmdstan_gq, params = 'all_params'){
 
