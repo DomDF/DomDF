@@ -9,6 +9,6 @@ A personal R package containing functions for Bayesian data analysis and plottin
 This can be installed using the following code:
 
 ```
+require(devtools)
 devtools::install_github(repo = 'DomDF/DomDF')
-
 ```
