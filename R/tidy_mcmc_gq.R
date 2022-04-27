@@ -24,7 +24,7 @@ tidy_mcmc_gq <- function(cmdstan_gq, params = 'all_params'){
 
   n_params <- length(vars)
   n_chains <- cmdstan_gq$num_chains()
-  n_draws <- cmdstan_gq$metadata()$stan_variable_dims[[1]]
+  n_draws <- dim(cmdstan_gq$draws())[1]
 
 #  thinning <- cmdstan_fit$metadata()$thin
 
