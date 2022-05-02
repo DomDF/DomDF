@@ -3,6 +3,7 @@
 export(Metropolis_RW)
 export(Metropolis_traceplot)
 export(VoPI)
+export(gamma_params)
 export(gen_exp_quad_cov)
 export(get_TM_squad)
 export(lnorm_params)
