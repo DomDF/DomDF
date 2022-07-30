@@ -4,22 +4,22 @@
 \alias{get_TM_squad}
 \title{get_TM_squad}
 \usage{
-get_TM_squad(url, agent, raw = FALSE)
+get_TM_squad(url, user_agent, raw = FALSE)
 }
 \arguments{
 \item{url}{A valid ()detailed) transfermarkt url. Navigate to a club page, click on the 'detailed' tab, and then paste the url - REQUIRED.}
 
-\item{raw}{Logical: if TRUE, returns the unprocessed table. if FALSE, returns a processed tibble - defaults to FALSE}
-
 \item{user_agent}{A character introducing yourself to the website - REQUIRED.}
+
+\item{raw}{Logical: if TRUE, returns the unprocessed table. if FALSE, returns a processed tibble - defaults to FALSE}
 }
 \description{
 A webscraping function for the website 'https://www.transfermarkt.com/'.
 Returns a preprocessed tibble of any squad.
 }
 \examples{
-Juventus squad <- get_TM_squad(url =  'https://www.transfermarkt.co.uk/juventus-fc/kader/verein/506/saison_id/2020/plus/1', user_agent = 'John Smith personal project')
-Blackburn_Rovers_squad <- get_TM_squad(url = 'https://www.transfermarkt.co.uk/blackburn-rovers/kader/verein/164/saison_id/2020/plus/1', user_agent = 'John Smith personal project')
+Juventus squad <- get_TM_squad(url = 'https://www.transfermarkt.co.uk/juventus-fc/kader/verein/506/saison_id/2022/plus/1', user_agent = 'John Smith personal project')
+Blackburn_Rovers_squad <- get_TM_squad(url = 'https://www.transfermarkt.co.uk/blackburn-rovers/kader/verein/164/saison_id/2022/plus/1', user_agent = 'John Smith personal project')
 }
 \keyword{Football,}
 \keyword{Soccer}

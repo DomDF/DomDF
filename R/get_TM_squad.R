@@ -31,6 +31,15 @@ get_TM_squad <- function(url, user_agent, raw = FALSE){
     stringr::str_replace_all(pattern = '\n', replacement = '') |>
     stringr::str_trim()
 
+  page_urls <- session |>
+    polite::scrape() |>
+    rvest::html_nodes('#yw1 > table') |>
+    rvest::html_nodes('td') |>
+    rvest::html_nodes(css = 'a') |>
+    rvest::html_attr('href')
+
+  player_urls <- page_urls[grepl(pattern = 'spieler', x = page_urls)]
+
   squad <- session |>
     polite::scrape() |>
     rvest::html_nodes('#yw1 > table') |>
@@ -76,7 +85,9 @@ get_TM_squad <- function(url, user_agent, raw = FALSE){
     mutate(player = forcats::fct_reorder(.f = as.factor(player), .x = market_value),
            position = forcats::as_factor(position),
            foot = forcats::as_factor(foot),
-           team = team_name)
+           team = team_name,
+           player_urls = purrr::map(.x = player_urls,
+                                    .f = function(.x){paste0('https://www.transfermarkt.co.uk', .x)}))
 
   # squad$player_name = character(length = squad |> nrow())
   #
